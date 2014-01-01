@@ -89,6 +89,8 @@ Now, if we suppose the LHS of these equations encode the unchangeable, fundament
 
 \section{A Discrete Analogue}
 
+\subsection{1D Simulation}
+
 Suppose for the sake of a computer simulation the trajectory of a particle in 1 dimension is defined as a sequence of $N$ real numbers separated by a time step $\Delta h$. Thus the total time of the simulation is $\left( N-1 \right)\Delta h$ and the trajectory can be represented as a vector:
 
 \begin{align}
@@ -154,7 +156,7 @@ If we then take the inner product of both sides of \eqref{eq:SLE} with respect t
 \begin{align}
     \Braket{e_k(\vec x) | \hat L u(\vec x)} &= \Braket{e_k(\vec x) | f(\vec x)} \\
     \Braket{e_k(\vec x) | \sum\limits_m \lambda_m u_m e_m(\vec x)} &= \Braket{e_k(\vec x) | f(\vec x)} \\
-    \lambda_m u_m &= \Braket{e_k(\vec x) | f(\vec x)}
+    \lambda_k u_k &= \Braket{e_k(\vec x) | f(\vec x)}
 \end{align}
 
 It follows that we can write the solution as
@@ -181,13 +183,13 @@ Now we transpose the order of integration and summation, a mathematically brazen
 u(\vec x) &= \int_{\chi} \left[ \sum\limits_m \frac{1}{\lambda_m} w(\vec x_0) e_m^*(\vec x_0) e_m(\vec x) \right] f(\vec x_0) d^n\vec x_0
 \end{align}
 
-This Green's function is defined as this sum:
+The Green's function is defined as this sum:
 
 \begin{align}
     \highlight{G(\vec x,\vec x_0) \equiv \sum\limits_m \frac{1}{\lambda_m} w(\vec x_0) e_m^*(\vec x_0) e_m(\vec x)}
 \end{align}
 
-This is not the method by which Green's functions are typically calculated, but it does provide a strong foundation assuming they exist for the differential equations we use in physics.
+This is not the method by which Green's functions are typically calculated, but it does provide a strong foundation for assuming they exist for the differential equations we use in physics.
 
 \subsection{Time-Dependent}
 
@@ -199,7 +201,7 @@ This is not the method by which Green's functions are typically calculated, but 
 \end{align}
 
 
-\subsection{Damped, Driven  Oscillator}
+\subsection{Damped and Driven  Oscillator}
 
 Consider the system
 \begin{align}
