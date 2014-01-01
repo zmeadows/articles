@@ -126,6 +126,8 @@ The matrix element $L_{ij}^{-1}$ represents the degree to which the trajectory $
 
 \section{Differential Equations}
 
+
+
 \section{Examples}
 \subsection{Electrostatics}
 \subsection{Driven Oscillator}
@@ -213,11 +215,47 @@ where the the action of $\theta(t-t_0)$ has transformed the limits of integratio
 \left( \nabla^2+k^2 \right)G_k(\vec r) = -4\pi \delta(\vec r)
 \end{align}
 
-Here the subscript $k$ in $G_k(\vec r)$ indicates the depdence of the Green's function on the particular value of k. This will aid us in deriving the Green's function of the wave equation later. If we assume there are no boundary surfaces, the Green's function can only depend on $r \equiv |\vec r - \vec r'|$ and we can exploit the simplicity of the spherically symmetric Laplacian:
+Here the subscript $k$ in $G_k(\vec r)$ indicates the dependence  of the Green's function on the particular value of k. This will aid us in deriving the Green's function of the wave equation later. If we assume there are no boundary surfaces, the Green's function can only depend on $r \equiv |\vec r - \vec r'|$ and we can exploit the simplicity of the spherically symmetric Laplacian:
 
 \begin{align}
     \frac{1}{r} \frac{d^2}{dr^2} \left( rG(r) \right) + k^2 G(r) = -4\pi \delta(r)
 \end{align}
+
+after multiplying by r,
+
+\begin{align}
+    \frac{d^2}{dr^2} \left( rG(r) \right) + k^2 \left( rG(r)  \right) = -4\pi r \delta(r)
+\end{align}
+
+When $r \neq 0$, $rG(r)$ satisifies $ \frac{d^2}{dr^2} \left( rG(r) \right) + k^2 \left( rG(r)  \right) = 0$, the equation for a simple harmonic oscillator with solutions $rG(r) = A e^{\pm ikr} \Rightarrow \ G(r) = A \frac{e^{\pm ikr}}{r}$, where $A$ is a constant.  All that is left to do is to ensure this solution satisfies the inhomogeneous equation and find the value of $A$ in the process.
+
+\begin{align}
+    \left( \nabla^2+k^2 \right) A \frac{e^{\pm ikr}}{r} &= -4\pi \delta(r)
+\end{align}
+\begin{align}
+    A \left[ e^{\pm ikr} \nabla^2 \left(\frac{1}{r}\right) + \frac{1}{r} \nabla^2 \left( e^{\pm ikr}  \right) + 2 \nabla \left( \frac{1}{r} \right) \cdot \nabla \left( e^{\pm ikr} \right) \right] + A k^2 \frac{e^{\pm ikr}}{r} &= -4\pi \delta(r)
+\end{align}
+
+The second and fourth terms on the LHS cancel, and we are left with
+
+\begin{align}
+    A e^{\pm ikr} \left[ \nabla^2 \left(\frac{1}{r}\right) \pm 2ik  \hat r \cdot \nabla \left( \frac{1}{r} \right) \right] &= -4\pi \delta(r)
+\end{align}
+
+Since the delta function only acts exactly at $r=0$, we take the limit as $r \rightarrow 0$. The first term dominates in this limit, which leaves us with
+
+\begin{align}
+    A \left[ \nabla^2 \left(\frac{1}{r}\right) \right] &= -4\pi \delta(r)
+\end{align}
+
+which demands that the constant A=1 and confirms that our solution does in fact hold in the presence of the delta function. The two different solutions
+
+\begin{align}
+    \highlight{ G_k^{\left( \pm \right)} = \frac{e^{\pm ikr}}{r} }
+\end{align}
+
+represent \textit{sources} $\left( G_k^+ \right)$ and \textit{sinks} $\left( G_k^- \right)$.
+
 
 
 
